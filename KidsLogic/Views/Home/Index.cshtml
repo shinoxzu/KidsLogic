@@ -1,0 +1,58 @@
+@using KidsLogic.Models.DataBase
+@model Lesson[]
+
+@{
+    ViewData["Title"] = "KidsLogic";
+}
+
+@section Styles
+{
+    <link href="/css/home.css" rel="stylesheet" type="text/css"/>
+}
+
+<div class="row justify-content-center row-cols-2">
+    <div class="col-11 col-md-5 col-xl-4">
+        <div class="block-body default-color" id="lessons-block">
+            <p class="main-text block-name">Уроки</p>
+
+            @{
+                int rangeStart = (int) ViewData["NowLessonId"]! - 1;
+                int rangeEnd = (int) ViewData["NowLessonId"]! + 2 > Model.Length ?
+                    Model.Length : (int) ViewData["NowLessonId"]! + 2;
+
+                if (rangeEnd - rangeStart < 2)
+                {
+                    rangeStart -= 2;
+                }
+                else if (rangeEnd - rangeStart < 3)
+                {
+                    rangeStart -= 1;
+                }
+            }
+
+            @foreach (Lesson lesson in Model[rangeStart..rangeEnd])
+            {
+                string itemColor = lesson.Id <= (int) ViewData["NowLessonId"]! ? "positive-item-color" : "negative-item-color";
+                <div  onclick="location.href='/lessons/@lesson.Id/1';" class="btn d-flex justify-content-center align-items-center block-item-body @itemColor secondary-text">
+                    @lesson.Name
+                </div>
+            }
+
+            <div  onclick="location.href='/lessons';" class="btn d-flex justify-content-center align-items-center block-item-body default-item-color secondary-text">
+                ...
+            </div>
+        </div>
+    </div>
+
+    <div class="col-11 col-md-5 col-xl-4">
+        <div onclick="location.href='/achievements';" class="block-body default-color" id="achievements-block">
+            <p class="main-text block-name">Достижения</p>
+            <p class="secondary-text">В этом разделе можно просмотреть собранные за прохождение уроков достижения.</p>
+        </div>
+
+        <div onclick="location.href='/dictionary';" class="block-body default-color" id="dictionary-block">
+            <p class="main-text block-name">Словарь</p>
+            <p class="secondary-text">В этом разделе можно просмотреть определения изученных терминов.</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+@model KidsLogic.Models.LessonDataModel
+
+@{
+    ViewData["Title"] = Model.Lesson.Name;
+}
+
+@section Styles
+{
+    <link href="/css/lesson.css" rel="stylesheet" type="text/css"/>
+}
+
+<h1>@Model.Lesson.Name</h1>
+
+@foreach (string paragraph in Model.LessonsPart.Text.Split("\n"))
+{
+    <p>@paragraph</p>
+}
+
+<p></p>
+
+<form method="post" asp-controller="Lessons" asp-action="Index" asp-route-lessonid="@Model.Lesson.Id" asp-route-partid="@Model.LessonsPart.PartId">
+    <div class="secondary-text" asp-validation-summary="ModelOnly"></div>
+    
+    <div class="row mb-3">
+        @{
+            int count = 0;
+        }
+        
+        @foreach (string answerVariant in Model.LessonsPart.AnswerVariants.Split("\n"))
+        {
+            <div class="form-check">
+                <input class="form-check-input secondary-text" type="radio" value="@answerVariant" name="ExerciseAnswer" id="i@(count)">
+                <label class="form-check-label secondary-text" for="i@(count)">@answerVariant</label>
+            </div>
+
+            count += 1;
+        }
+    </div>
+    
+    <p></p>
+
+    <button type="submit" class="btn btn-primary btn-lg" value="Check">Проверить</button>
+</form>

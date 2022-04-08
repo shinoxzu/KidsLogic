@@ -1,0 +1,31 @@
+﻿@using KidsLogic.Models.DataBase
+@model KidsLogic.Models.DataBase.DictionaryWord[]
+
+@{
+    ViewData["Title"] = "Словарь";
+}
+
+@section Styles
+{
+    <link href="/css/page.css" rel="stylesheet" type="text/css"/>
+}
+
+<h1>Словарь</h1>
+<p></p>
+
+<div class="row justify-content-evenly row-cols-1">
+    @if (Model.Length > 0)
+    {
+        @foreach (DictionaryWord word in Model)
+        {
+            <div onclick="" class="col-12 col-md-12 col-xl-12 block-body default-color">
+                <h4>@word.Word</h4>
+                <p class="secondary-text block-name">@word.Definition</p>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>Пока что ваш словарь пуст.</h3>
+    }
+</div>

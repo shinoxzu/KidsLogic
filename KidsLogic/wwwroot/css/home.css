@@ -1,0 +1,33 @@
+﻿.block-body {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px -1px, rgba(0, 0, 0, 0.06) 0 2px 4px -1px;
+    margin-bottom: 20px;
+    padding-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.block-item-body {
+    z-index: -1;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px -1px, rgba(0, 0, 0, 0.06) 0 2px 4px -1px;
+    margin-top: 23px;
+    height: 55px;
+}
+
+.block-name {
+    text-align: center
+}
+
+#achievements-block {
+    min-height: 175px;
+}
+
+#lessons-block {
+    z-index: 1;
+    min-height: 370px;
+}
+
+#dictionary-block {
+    min-height: 175px;
+}

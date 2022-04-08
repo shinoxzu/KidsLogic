@@ -1,0 +1,32 @@
+@model KidsLogic.Models.LessonDataModel
+
+@{
+    ViewData["Title"] = Model.Lesson.Name;
+}
+
+@section Styles
+{
+    <link href="/css/lesson.css" rel="stylesheet" type="text/css"/>
+}
+
+<h1>@Model.Lesson.Name</h1>
+
+@foreach (string paragraph in Model.LessonsPart.Text.Split("\n"))
+{
+    <p>@paragraph</p>
+}
+
+<p></p>
+
+@if (Model.IsLastPage)
+{
+    <button onclick="location.href='/lessons/';" type="submit" class="btn btn-primary btn-lg">
+        Далее
+    </button>
+}
+else
+{
+    <button onclick="location.href='/lessons/@Model.Lesson.Id/@(Model.LessonsPart.PartId + 1)';" type="submit" class="btn btn-primary btn-lg">
+        Далее
+    </button>
+}

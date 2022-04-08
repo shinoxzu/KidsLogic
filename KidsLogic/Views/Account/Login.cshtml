@@ -1,0 +1,26 @@
+@model KidsLogic.Models.DataTransferObjects.UserLoginDTO
+
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<h1>Вход в учетную запись</h1>
+<p></p>
+
+<form method="post" asp-controller="Account" asp-action="Login" asp-antiforgery="true">
+    <div class="secondary-text" asp-validation-summary="ModelOnly"></div>
+
+    <div class="mb-3">
+        <label class="form-label secondary-text" asp-for="Email">Электронная почта</label>
+        <input type="email" class="form-control" asp-for="Email"/>
+        <span class="secondary-text" asp-validation-for="Email"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label secondary-text" asp-for="Password">Пароль</label>
+        <input type="password" class="form-control" asp-for="Password"/>
+        <span class="secondary-text" asp-validation-for="Password"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg" value="Login">Войти</button>
+</form>

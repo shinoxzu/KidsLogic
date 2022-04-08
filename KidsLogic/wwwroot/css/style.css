@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "Source Sans Pro SemiBold";
+    src: url("SourceSansPro-SemiBold.ttf")
+}
+
+@font-face {
+    font-family: "Source Sans Pro Regular";
+    src: url("SourceSansPro-Regular.ttf")
+}
+
+#avatar {
+    border-radius: 50%;
+    margin-left: 1%;
+}
+
+body {
+    background-color: #E7E7E7;
+    margin-left: 23%;
+    margin-right: 23%;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Source Sans Pro SemiBold", serif;
+}
+
+p, label {
+    font-family: "Source Sans Pro Regular", serif;
+}
+
+.navbar {
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    border-radius: 25px;
+    margin: 2% 0 3% 0;
+    padding: 1.4% 0 1.4% 0;
+}
+
+.navbar-brand {
+    padding-left: 7%;
+    font-size: 1.4em;
+    font-family: "Source Sans Pro SemiBold", serif;
+    color: black;
+}
+
+.reg-buttons {
+    padding-right: 7%;
+}
+
+.reg-button-text {
+    font-size: 1.15em;
+    font-family: "Source Sans Pro SemiBold", serif;
+    color: black;
+}
+
+.main-text {
+    font-size: 1.35em;
+    font-family: "Source Sans Pro SemiBold", serif;
+    color: black;
+}
+
+.secondary-text {
+    font-size: 1.1em;
+    font-family: "Source Sans Pro Regular", serif;
+    color: black;
+}
+
+footer {
+    margin-top: 3%;
+}
+
+.positive-item-color {
+    background-color: #B2DEBE;
+}
+
+.positive-item-color:active {
+    background-color: #5e8568;
+}
+
+.negative-item-color {
+    background-color: #EBC8C8;
+}
+
+.negative-item-color:active {
+    background-color: #8d6969;
+}
+
+.default-item-color {
+    background-color: #E7E7E7;
+}
+
+.default-item-color:active {
+    background-color: #9a9a9a;
+}
+
+.default-color {
+    background-color: #D1D8EF;
+}
+
+@media screen and (max-width: 1080px) {
+    body {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #avatar {
+        margin-left: 2%;
+    }
+
+    .reg-buttons {
+        padding-right: 0;
+    }
+
+    .navbar-brand {
+        padding-left: 0;
+    }
+}

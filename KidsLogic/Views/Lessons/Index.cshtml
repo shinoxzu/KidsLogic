@@ -1,0 +1,45 @@
+@model KidsLogic.Models.DataBase.Lesson[]
+
+@{
+    ViewData["Title"] = "Уроки";
+}
+
+@section Styles
+{
+    <link href="/css/page.css" rel="stylesheet" type="text/css"/>
+}
+
+<h1>Уроки</h1>
+<p></p>
+
+@for (int count = 0; count < Model.Length; count++)
+{
+    <div class="row justify-content-evenly row-cols-2">
+        @if (count == Model.Length - 1)
+        {
+            @await Component.InvokeAsync("LessonItem", new
+            {
+                lesson = Model[count], 
+                isActive = Model[count].Id <= (int) ViewData["NowLessonId"]!
+            })
+
+            @await Component.InvokeAsync("LessonItem")
+        }
+        else
+        {
+            @await Component.InvokeAsync("LessonItem", new
+            {
+                lesson = Model[count], 
+                isActive = Model[count].Id <= (int) ViewData["NowLessonId"]!
+            })
+            
+            @await Component.InvokeAsync("LessonItem", new
+            {
+                lesson = Model[count + 1], 
+                isActive = Model[count + 1].Id <= (int) ViewData["NowLessonId"]!
+            })
+        }
+    </div>
+
+    count += 1;
+}
